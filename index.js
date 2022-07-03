@@ -91,6 +91,10 @@ const inKey = [
     [{text: `${url3}`, url: `${url4}`}]
 ];
 
+const inKey2 = [
+    [{text: `${url3}`, url: `${url4}`}]
+];
+
 //BOT START
 bot.start(async(ctx)=>{
     if(ctx.chat.type == 'private') {
@@ -219,20 +223,14 @@ bot.start(async(ctx)=>{
                                     parse_mode:'HTML',
                                     disable_web_page_preview: true,
                                     reply_markup:{
-                                        inline_keyboard:[
-                                            [{text: `${url3}`, url: `${url4}`}],
-                                            [{text: `Try again`, url: msg}]
-                                        ]
+                                        inline_keyboard:inKey2
                                     }
                                 })
                                 await ctx.replyWithPhoto(profile2.photos[0][0].file_id,{caption: `<a href="tg://user?id=${ctx.from.id}">${first_name(ctx)} ${last_name(ctx)}</a> \n\n${welcomejoin(ctx)}`,
                                     parse_mode:'HTML',
                                     disable_web_page_preview: true,
                                     reply_markup:{
-                                        inline_keyboard:[
-                                            [{text: `${url3}`, url: `${url4}`}],
-                                            [{text: `Try again`, url: msg}]
-                                        ]
+                                        inline_keyboard:inKey2
                                     }
                                 })
                         }
