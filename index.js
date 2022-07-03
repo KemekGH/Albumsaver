@@ -104,6 +104,8 @@ bot.start(async(ctx)=>{
         let length = msgArray.length
         msgArray.shift()
         let query = msgArray.join(' ')
+
+        console.log("ctx");
     
         const user = {
             first_name:ctx.from.first_name,
