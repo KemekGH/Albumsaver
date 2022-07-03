@@ -224,7 +224,7 @@ bot.start(async(ctx)=>{
                                     reply_markup:{
                                         inline_keyboard:[
                                             [{text: `${url3}`, url: `${url4}`}],
-                                            [{text: `Try again`, url: ctx.message.text}]
+                                            [{text: "Try again", url: ctx.message.text}]
                                         ]
                                     }
                                 })
@@ -234,7 +234,7 @@ bot.start(async(ctx)=>{
                                     reply_markup:{
                                         inline_keyboard:[
                                             [{text: `${url3}`, url: `${url4}`}],
-                                            [{text: `Try again`, url: ctx.message.text}]
+                                            [{text: "Try again", url: ctx.message.text}]
                                         ]
                                     }
                                 })
