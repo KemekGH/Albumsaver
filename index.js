@@ -100,8 +100,6 @@ bot.start(async(ctx)=>{
         let length = msgArray.length
         msgArray.shift()
         let query = msgArray.join(' ')
-
-        console.log(ctx.message.text);
     
         const user = {
             first_name:ctx.from.first_name,
@@ -215,7 +213,6 @@ bot.start(async(ctx)=>{
                                 await ctx.reply(`${messagebanned(ctx)}`)
                             }
                         }else{
-                            ctx.deleteMessage()
                             if (msg.indexOf('/start A') > -1 || msg.indexOf('/start grp_') > -1){
                                 if(!profile2 || profile2.total_count == 0)
                                 return await ctx.reply(`<a href="tg://user?id=${ctx.from.id}">${first_name(ctx)} ${last_name(ctx)}</a> \n\n${welcomejoin(ctx)}`,{
