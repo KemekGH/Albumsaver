@@ -91,10 +91,6 @@ const inKey = [
     [{text: `${url3}`, url: `${url4}`}]
 ];
 
-const inKey2 = [
-    [{text: `${url3}`, url: `${url4}`}]
-];
-
 //BOT START
 bot.start(async(ctx)=>{
     if(ctx.chat.type == 'private') {
@@ -223,14 +219,20 @@ bot.start(async(ctx)=>{
                                     parse_mode:'HTML',
                                     disable_web_page_preview: true,
                                     reply_markup:{
-                                        inline_keyboard:inKey2
+                                        inline_keyboard:[
+                                            [{text: `${url3}`, url: `${url4}`}],
+                                            [{text: `Try again`, url: msg}]
+                                        ]
                                     }
                                 })
                                 await ctx.replyWithPhoto(profile2.photos[0][0].file_id,{caption: `<a href="tg://user?id=${ctx.from.id}">${first_name(ctx)} ${last_name(ctx)}</a> \n\n${welcomejoin(ctx)}`,
                                     parse_mode:'HTML',
                                     disable_web_page_preview: true,
                                     reply_markup:{
-                                        inline_keyboard:inKey2
+                                        inline_keyboard:[
+                                            [{text: `${url3}`, url: `${url4}`}],
+                                            [{text: `Try again`, url: msg}]
+                                        ]
                                     }
                                 })
                         }
@@ -1023,7 +1025,7 @@ bot.command('rem', async(ctx) => {
         let text = `${text2}`.replace(/_/g, '-');
         console.log(text);
 
-                let str = process.env.ADMIN;
+        let str = process.env.ADMIN;
         let result = str.includes(ctx.from.id);
 
         if(result == true){
@@ -1043,7 +1045,7 @@ bot.command('remgrp', async(ctx) => {
         let media = msgArray.join(' ')
         //console.log(media);
 
-                let str = process.env.ADMIN;
+        let str = process.env.ADMIN;
         let result = str.includes(ctx.from.id);
 
         if(result == true){
@@ -1057,7 +1059,7 @@ bot.command('remgrp', async(ctx) => {
 //remove whole collection(remove all files)
 bot.command('clear', async(ctx)=>{
     if(ctx.chat.type == 'private') {
-                let str = process.env.ADMIN;
+        let str = process.env.ADMIN;
         let result = str.includes(ctx.from.id);
 
         if(result == true){
@@ -1078,7 +1080,7 @@ bot.command('remall', async(ctx) => {
         //console.log(text);
         let id = parseInt(text)
 
-                let str = process.env.ADMIN;
+        let str = process.env.ADMIN;
         let result = str.includes(ctx.from.id);
 
         if(result == true){
@@ -1129,7 +1131,7 @@ bot.command('broadcast',async(ctx)=>{
 
             }
 
-                    let str = process.env.ADMIN;
+            let str = process.env.ADMIN;
         let result = str.includes(ctx.from.id);
 
         if(result == true){
@@ -1160,7 +1162,7 @@ bot.command('banchat', async(ctx) => {
         }
 
         if(ctx.chat.type == 'private') {
-                    let str = process.env.ADMIN;
+            let str = process.env.ADMIN;
         let result = str.includes(ctx.from.id);
 
         if(result == true){
@@ -1187,7 +1189,7 @@ bot.command('unbanchat', async(ctx) => {
         }
 
         if(ctx.chat.type == 'private') {
-                    let str = process.env.ADMIN;
+            let str = process.env.ADMIN;
         let result = str.includes(ctx.from.id);
 
         if(result == true){
@@ -1210,7 +1212,7 @@ bot.on('document', async(ctx,next) => {
     });
     //console.log(ctx);
     if(ctx.chat.type == 'private') {
-                let str = process.env.ADMIN;
+        let str = process.env.ADMIN;
         let result = str.includes(ctx.from.id);
 
         if(result == true){
@@ -1309,7 +1311,7 @@ bot.on('video', async(ctx,next) => {
     });
     //console.log(ctx);
     if(ctx.chat.type == 'private') {
-                let str = process.env.ADMIN;
+        let str = process.env.ADMIN;
         let result = str.includes(ctx.from.id);
 
         if(result == true){
@@ -1408,7 +1410,7 @@ bot.on('photo', async(ctx,next) => {
     });
     //console.log(ctx);
     if(ctx.chat.type == 'private') {
-                let str = process.env.ADMIN;
+        let str = process.env.ADMIN;
         let result = str.includes(ctx.from.id);
 
         if(result == true){
@@ -1502,7 +1504,7 @@ bot.on('photo', async(ctx,next) => {
 bot.command('stats',async(ctx)=>{
     await ctx.deleteMessage(ctx.message.message_id)
     const stats1 = await saver.getUser().then(async res=>{
-                let str = process.env.ADMIN;
+        let str = process.env.ADMIN;
         let result = str.includes(ctx.from.id);
 
         if(result == true){
@@ -1510,7 +1512,7 @@ bot.command('stats',async(ctx)=>{
         }
     })
     const stats2 = await saver.getMedia().then(async res=>{
-                let str = process.env.ADMIN;
+        let str = process.env.ADMIN;
         let result = str.includes(ctx.from.id);
 
         if(result == true){
@@ -1518,7 +1520,7 @@ bot.command('stats',async(ctx)=>{
         }
     })
     const stats3 = await saver.getBan().then(async res=>{
-                let str = process.env.ADMIN;
+        let str = process.env.ADMIN;
         let result = str.includes(ctx.from.id);
 
         if(result == true){
@@ -1526,7 +1528,7 @@ bot.command('stats',async(ctx)=>{
         }
     })
     const stats4 = await saver.getGroup().then(async res=>{
-                let str = process.env.ADMIN;
+        let str = process.env.ADMIN;
         let result = str.includes(ctx.from.id);
 
         if(result == true){
