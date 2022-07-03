@@ -100,8 +100,6 @@ bot.start(async(ctx)=>{
         let length = msgArray.length
         msgArray.shift()
         let query = msgArray.join(' ')
-
-        console.log(ctx);
     
         const user = {
             first_name:ctx.from.first_name,
@@ -216,7 +214,7 @@ bot.start(async(ctx)=>{
                             }
                         }else{
                             //ctx.deleteMessage()
-                            if (ctx.message.text.indexOf('/start A') >= 0 || ctx.message.text.indexOf('/start grp_') >= 0){
+                            if(msg.indexOf('/start A') > -1 || msg.indexOf('/start grp_') > -1){
                                 if(!profile2 || profile2.total_count == 0)
                                 return await ctx.reply(`<a href="tg://user?id=${ctx.from.id}">${first_name(ctx)} ${last_name(ctx)}</a> \n\n${welcomejoin(ctx)}`,{
                                     parse_mode:'HTML',
@@ -224,7 +222,7 @@ bot.start(async(ctx)=>{
                                     reply_markup:{
                                         inline_keyboard:[
                                             [{text: `${url3}`, url: `${url4}`}],
-                                            [{text: "Try again", url: ctx.message.text}]
+                                            [{text: `Try again`, url: msg}]
                                         ]
                                     }
                                 })
@@ -234,7 +232,7 @@ bot.start(async(ctx)=>{
                                     reply_markup:{
                                         inline_keyboard:[
                                             [{text: `${url3}`, url: `${url4}`}],
-                                            [{text: "Try again", url: ctx.message.text}]
+                                            [{text: `Try again`, url: msg}]
                                         ]
                                     }
                                 })
