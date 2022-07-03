@@ -94,7 +94,7 @@ const inKey = [
 //BOT START
 bot.start(async(ctx)=>{
     if(ctx.chat.type == 'private') {
-        const msg = ctx.message.text
+        const msg = ctx.message.text;
         let msgArray = msg.split(' ')
         //console.log(msgArray.length);
         let length = msgArray.length
@@ -213,7 +213,8 @@ bot.start(async(ctx)=>{
                                 await ctx.reply(`${messagebanned(ctx)}`)
                             }
                         }else{
-                            if (msg.indexOf('/start A') > -1 || msg.indexOf('/start grp_') > -1){
+                            //ctx.deleteMessage()
+                            if (ctx.message.text.indexOf('/start A') >= 0 || ctx.message.text.indexOf('/start grp_') >= 0){
                                 if(!profile2 || profile2.total_count == 0)
                                 return await ctx.reply(`<a href="tg://user?id=${ctx.from.id}">${first_name(ctx)} ${last_name(ctx)}</a> \n\n${welcomejoin(ctx)}`,{
                                     parse_mode:'HTML',
@@ -221,7 +222,7 @@ bot.start(async(ctx)=>{
                                     reply_markup:{
                                         inline_keyboard:[
                                             [{text: `${url3}`, url: `${url4}`}],
-                                            [{text: `Try again`, url: `${msg}`}]
+                                            [{text: `Try again`, url: ctx.message.text}]
                                         ]
                                     }
                                 })
@@ -231,7 +232,7 @@ bot.start(async(ctx)=>{
                                     reply_markup:{
                                         inline_keyboard:[
                                             [{text: `${url3}`, url: `${url4}`}],
-                                            [{text: `Try again`, url: `${msg}`}]
+                                            [{text: `Try again`, url: ctx.message.text}]
                                         ]
                                     }
                                 })
@@ -289,7 +290,7 @@ bot.start(async(ctx)=>{
                                 }
                             })
                         }else{
-                            if (query.indexOf('grp_') > -1){
+                            if(query.indexOf('grp_') > -1){
                                 let query1 = query.replace('grp_','');
                                 try{
                                     const res1 = await saver.getFile1(query1)
