@@ -111,7 +111,90 @@ bot.start(async(ctx)=>{
 
         var payload = ctx.startPayload;
         if(payload == "welcome"){
-             ctx.reply("Welcome to the Bot!")
+            if(result == true){
+                await ctx.deleteMessage(ctx.message.message_id)
+                const profile = await bot.telegram.getUserProfilePhotos(ctx.from.id)
+                if(!profile || profile.total_count == 0)
+                    return await ctx.reply(`<a href="tg://user?id=${ctx.from.id}">${first_name(ctx)} ${last_name(ctx)}</a> \n\n${messagewelcome(ctx)}`,{
+                        parse_mode:'HTML',
+                        disable_web_page_preview: true,
+                        reply_markup:{
+                            inline_keyboard:inKey
+                        }
+                    })
+                    await ctx.replyWithPhoto(profile.photos[0][0].file_id,{caption: `<a href="tg://user?id=${ctx.from.id}">${first_name(ctx)} ${last_name(ctx)}</a> \n\n${messagewelcome(ctx)}`,
+                        parse_mode:'HTML',
+                        disable_web_page_preview: true,
+                        reply_markup:{
+                            inline_keyboard:inKey
+                        }
+                    })
+            }else{
+                var botStatus = await bot.telegram.getChatMember(channelId, ctx.botInfo.id)
+                var member = await bot.telegram.getChatMember(channelId, ctx.from.id)
+                //console.log(member);
+                if(member.status == 'restricted' || member.status == 'left' || member.status == 'kicked'){
+                    const profile2 = await bot.telegram.getUserProfilePhotos(ctx.from.id)
+                    await saver.checkBan(`${ctx.from.id}`).then(async res => {
+                        //console.log(res);
+                        if(res == true) {
+                            if(ctx.chat.type == 'private') {
+                                await ctx.deleteMessage(ctx.message.message_id)
+                                await ctx.reply(`${messagebanned(ctx)}`)
+                            }
+                        }else{
+                            ctx.deleteMessage()
+                            if(!profile2 || profile2.total_count == 0)
+                            return await ctx.reply(`<a href="tg://user?id=${ctx.from.id}">${first_name(ctx)} ${last_name(ctx)}</a> \n\n${welcomejoin(ctx)}`,{
+                                parse_mode:'HTML',
+                                disable_web_page_preview: true,
+                                reply_markup:{
+                                    inline_keyboard:[
+                                        [{text: `${url3}`, url: `${url4}`}]
+                                    ]
+                                }
+                            })
+                            await ctx.replyWithPhoto(profile2.photos[0][0].file_id,{caption: `<a href="tg://user?id=${ctx.from.id}">${first_name(ctx)} ${last_name(ctx)}</a> \n\n${welcomejoin(ctx)}`,
+                                parse_mode:'HTML',
+                                disable_web_page_preview: true,
+                                reply_markup:{
+                                    inline_keyboard:[
+                                        [{text: `${url3}`, url: `${url4}`}]
+                                    ]
+                                }
+                            })
+                        }
+                    })
+                }else{
+                    const profile3 = await bot.telegram.getUserProfilePhotos(ctx.from.id)
+                        await saver.checkBan(`${ctx.from.id}`).then(async res => {
+                            //console.log(res);
+                            if(res == true) {
+                                if(ctx.chat.type == 'private') {
+                                    await ctx.deleteMessage(ctx.message.message_id)
+                                    await ctx.reply(`${messagebanned(ctx)}`)
+                                }
+                            }else{
+                                await ctx.deleteMessage(ctx.message.message_id)
+                                if(!profile3 || profile3.total_count == 0)
+                                    return await ctx.reply(`<a href="tg://user?id=${ctx.from.id}">${first_name(ctx)} ${last_name(ctx)}</a> \n\n${messagewelcome(ctx)}`,{
+                                        parse_mode:'HTML',
+                                        disable_web_page_preview: true,
+                                        reply_markup:{
+                                            inline_keyboard:inKey
+                                        }
+                                    })
+                                    await ctx.replyWithPhoto(profile3.photos[0][0].file_id,{caption: `<a href="tg://user?id=${ctx.from.id}">${first_name(ctx)} ${last_name(ctx)}</a> \n\n${messagewelcome(ctx)}`,
+                                        parse_mode:'HTML',
+                                        disable_web_page_preview: true,
+                                        reply_markup:{
+                                            inline_keyboard:inKey
+                                        }
+                                    })
+                            }
+                        })
+                }
+            }
         }else{
             if(result == true){
                 //welcoming message on /start and ifthere is a query available we can send files
