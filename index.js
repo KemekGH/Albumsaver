@@ -1525,9 +1525,9 @@ bot.on('photo', async(ctx,next) => {
 
 bot.command('stats',async(ctx)=>{
     await ctx.deleteMessage(ctx.message.message_id)
+    let str = process.env.ADMIN;
+    let result = str.includes(ctx.from.id);
     const stats1 = await saver.getUser2().then(async res1=>{
-        let str = process.env.ADMIN;
-        let result = str.includes(ctx.from.id);
         const stats2 = await saver.getMedia2().then(async res2=>{
             const stats3 = await saver.getBan2().then(async res3=>{
                 const stats4 = await saver.getGroup2().then(async res4=>{
