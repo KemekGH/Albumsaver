@@ -150,7 +150,8 @@ bot.start(async(ctx)=>{
                                 disable_web_page_preview: true,
                                 reply_markup:{
                                     inline_keyboard:[
-                                        [{text: `${url3}`, url: `${url4}`}]
+                                        [{text: `${url3}`, url: `${url4}`}],
+                                        [{text: `Try again`, url: `https://t.me/${process.env.BOTUSERNAME}?start=${query}`}]
                                     ]
                                 }
                             })
@@ -159,7 +160,8 @@ bot.start(async(ctx)=>{
                                 disable_web_page_preview: true,
                                 reply_markup:{
                                     inline_keyboard:[
-                                        [{text: `${url3}`, url: `${url4}`}]
+                                        [{text: `${url3}`, url: `${url4}`}],
+                                        [{text: `Try again`, url: `https://t.me/${process.env.BOTUSERNAME}?start=${query}`}]
                                     ]
                                 }
                             })
@@ -330,7 +332,8 @@ bot.start(async(ctx)=>{
                                         disable_web_page_preview: true,
                                         reply_markup:{
                                             inline_keyboard:[
-                                                [{text: `${url3}`, url: `${url4}`}]
+                                                [{text: `${url3}`, url: `${url4}`}],
+                                                [{text: `Try again`, url: `https://t.me/${process.env.BOTUSERNAME}?start=${query}`}]
                                             ]
                                         }
                                     })
@@ -339,7 +342,8 @@ bot.start(async(ctx)=>{
                                         disable_web_page_preview: true,
                                         reply_markup:{
                                             inline_keyboard:[
-                                                [{text: `${url3}`, url: `${url4}`}]
+                                                [{text: `${url3}`, url: `${url4}`}],
+                                                [{text: `Try again`, url: `https://t.me/${process.env.BOTUSERNAME}?start=${query}`}]
                                             ]
                                         }
                                     })
