@@ -1532,7 +1532,7 @@ bot.command('stats',async(ctx)=>{
             const stats3 = await saver.getBan2().then(async res3=>{
                 const stats4 = await saver.getGroup2().then(async res4=>{
                     if(result == true){
-                        await ctx.reply(`📊 Total users: <b>${res1.length}</b>\n📊 Total media: <b>${res2.length}</b>\n📊 Total users violate: <b>${res3.length}</b>\n📊 Total registered groups: <b>${res4.length}</b>`,{parse_mode:'HTML'})
+                        await ctx.reply(`👤 Total users: <b>${res1.length}</b>\n🎬 Total media: <b>${res2.length}</b>\n❌ Total users violate: <b>${res3.length}</b>\n👥 Total registered groups: <b>${res4.length}</b>`,{parse_mode:'HTML'})
                     }
                 })
             })
