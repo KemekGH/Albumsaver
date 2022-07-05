@@ -148,7 +148,7 @@ bot.start(async(ctx)=>{
                                 reply_markup:{
                                     inline_keyboard:[
                                         [{text: `${url3}`, url: `${url4}`}],
-                                        [{text: `Try again`, url: `https://t.me/${process.env.BOTUSERNAME}?start=${query}`}]
+                                        [{text: `🔄 Try again`, url: `https://t.me/${process.env.BOTUSERNAME}?start=${query}`}]
                                     ]
                                 }
                             })
@@ -158,7 +158,7 @@ bot.start(async(ctx)=>{
                                 reply_markup:{
                                     inline_keyboard:[
                                         [{text: `${url3}`, url: `${url4}`}],
-                                        [{text: `Try again`, url: `https://t.me/${process.env.BOTUSERNAME}?start=${query}`}]
+                                        [{text: `🔄 Try again`, url: `https://t.me/${process.env.BOTUSERNAME}?start=${query}`}]
                                     ]
                                 }
                             })
@@ -291,7 +291,7 @@ bot.start(async(ctx)=>{
                                         reply_markup:{
                                             inline_keyboard:[
                                                 [{text: `${url3}`, url: `${url4}`}],
-                                                [{text: `Try again`, url: `https://t.me/${process.env.BOTUSERNAME}?start=${query}`}]
+                                                [{text: `🔄 Try again`, url: `https://t.me/${process.env.BOTUSERNAME}?start=${query}`}]
                                             ]
                                         }
                                     })
@@ -301,7 +301,7 @@ bot.start(async(ctx)=>{
                                         reply_markup:{
                                             inline_keyboard:[
                                                 [{text: `${url3}`, url: `${url4}`}],
-                                                [{text: `Try again`, url: `https://t.me/${process.env.BOTUSERNAME}?start=${query}`}]
+                                                [{text: `🔄 Try again`, url: `https://t.me/${process.env.BOTUSERNAME}?start=${query}`}]
                                             ]
                                         }
                                     })
@@ -313,7 +313,7 @@ bot.start(async(ctx)=>{
                                         reply_markup:{
                                             inline_keyboard:[
                                                 [{text: `${url3}`, url: `${url4}`}],
-                                                [{text: `Try again`, url: `https://t.me/${process.env.BOTUSERNAME}?start=${query}`}]
+                                                [{text: `🔄 Try again`, url: `https://t.me/${process.env.BOTUSERNAME}?start=${query}`}]
                                             ]
                                         }
                                     })
@@ -323,7 +323,7 @@ bot.start(async(ctx)=>{
                                         reply_markup:{
                                             inline_keyboard:[
                                                 [{text: `${url3}`, url: `${url4}`}],
-                                                [{text: `Try again`, url: `https://t.me/${process.env.BOTUSERNAME}?start=${query}`}]
+                                                [{text: `🔄 Try again`, url: `https://t.me/${process.env.BOTUSERNAME}?start=${query}`}]
                                             ]
                                         }
                                     })
