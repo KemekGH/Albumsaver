@@ -1525,37 +1525,18 @@ bot.on('photo', async(ctx,next) => {
 
 bot.command('stats',async(ctx)=>{
     await ctx.deleteMessage(ctx.message.message_id)
-    const stats1 = await saver.getUser().then(async res=>{
+    const stats1 = await saver.getUser2().then(async res1=>{
         let str = process.env.ADMIN;
         let result = str.includes(ctx.from.id);
-
-        if(result == true){
-            await ctx.reply(`📊 Total users: <b>${res.length}</b>`,{parse_mode:'HTML'})
-        }
-    })
-    const stats2 = await saver.getMedia().then(async res=>{
-        let str = process.env.ADMIN;
-        let result = str.includes(ctx.from.id);
-
-        if(result == true){
-            await ctx.reply(`📊 Total media: <b>${res.length}</b>`,{parse_mode:'HTML'})
-        }
-    })
-    const stats3 = await saver.getBan().then(async res=>{
-        let str = process.env.ADMIN;
-        let result = str.includes(ctx.from.id);
-
-        if(result == true){
-            await ctx.reply(`📊 Total users violate: <b>${res.length}</b>`,{parse_mode:'HTML'})
-        }
-    })
-    const stats4 = await saver.getGroup().then(async res=>{
-        let str = process.env.ADMIN;
-        let result = str.includes(ctx.from.id);
-
-        if(result == true){
-            await ctx.reply(`📊 Total registered groups: <b>${res.length}</b>`,{parse_mode:'HTML'})
-        }
+        const stats2 = await saver.getMedia2().then(async res2=>{
+            const stats3 = await saver.getBan2().then(async res3=>{
+                const stats4 = await saver.getGroup2().then(async res4=>{
+                    if(result == true){
+                        await ctx.reply(`📊 Total users: <b>${res1.length}</b>\n📊 Total media: <b>${res2.length}</b>\n📊 Total users violate: <b>${res3.length}</b>\n📊 Total registered groups: <b>${res4.length}</b>`,{parse_mode:'HTML'})
+                    }
+                })
+            })
+        })
     })
 })
 
