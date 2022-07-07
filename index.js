@@ -372,7 +372,7 @@ bot.start(async(ctx)=>{
                                             let mediagroup = [];
                                             for (let index = 0; index < res1.length; index++) {
                                             const data = res1[index];
-                                            mediagroup.push({type: data.type, media: data.file_id, caption: data.caption, parse_mode:'HTML', reply_markup:{inline_keyboard:delKey}});
+                                            mediagroup.push({type: data.type, media: data.file_id, caption: data.caption, parse_mode:'HTML'});
                                         }
                         
                                         await saver.checkBan(`${ctx.from.id}`).then(async res => {
@@ -385,7 +385,7 @@ bot.start(async(ctx)=>{
                                                 }
                                             }else{
                                                 await ctx.deleteMessage(ctx.message.message_id)
-                                                await ctx.telegram.sendMediaGroup(ctx.chat.id, mediagroup);
+                                                await ctx.telegram.sendMediaGroup(ctx.chat.id, mediagroup, reply_markup:{inline_keyboard:delKey});
                                             }
                                         })
                                     }catch(error){
