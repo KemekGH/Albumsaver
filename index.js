@@ -88,10 +88,6 @@ const inKey = [
     [{text: `${url3}`, url: `${url4}`}]
 ];
 
-const delKey = [
-    [{text:'Deleted',callback_data:'DELETED'}]
-];
-
 //BOT START
 bot.start(async(ctx)=>{
     if(ctx.chat.type == 'private') {
@@ -227,7 +223,7 @@ bot.start(async(ctx)=>{
                                 let mediagroup = [];
                                 for (let index = 0; index < res1.length; index++) {
                                 const data = res1[index];
-                                mediagroup.push({type: data.type, media: data.file_id, caption: data.caption, parse_mode:'HTML', reply_markup:{inline_keyboard:delKey}});
+                                mediagroup.push({type: data.type, media: data.file_id, caption: data.caption, parse_mode:'HTML'});
                             }
 
                             await ctx.deleteMessage(ctx.message.message_id)
@@ -385,7 +381,7 @@ bot.start(async(ctx)=>{
                                                 }
                                             }else{
                                                 await ctx.deleteMessage(ctx.message.message_id)
-                                                await ctx.telegram.sendMediaGroup(ctx.chat.id, mediagroup, reply_markup:{inline_keyboard:delKey});
+                                                await ctx.telegram.sendMediaGroup(ctx.chat.id, mediagroup);
                                             }
                                         })
                                     }catch(error){
@@ -468,10 +464,6 @@ bot.start(async(ctx)=>{
         //saving user details to the database
         await saver.saveUser(user)
     }
-})
-
-bot.action('DELETED', async(ctx)=>{
-    await ctx.deleteMessage()
 })
 
 //DEFINING POP CALLBACK
