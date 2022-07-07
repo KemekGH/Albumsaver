@@ -88,6 +88,10 @@ const inKey = [
     [{text: `${url3}`, url: `${url4}`}]
 ];
 
+const delKey = [
+    [{text:'Deleted',callback_data:'DELETED'}]
+];
+
 //BOT START
 bot.start(async(ctx)=>{
     if(ctx.chat.type == 'private') {
@@ -223,7 +227,7 @@ bot.start(async(ctx)=>{
                                 let mediagroup = [];
                                 for (let index = 0; index < res1.length; index++) {
                                 const data = res1[index];
-                                mediagroup.push({type: data.type, media: data.file_id, caption: data.caption, parse_mode:'HTML'});
+                                mediagroup.push({type: data.type, media: data.file_id, caption: data.caption, parse_mode:'HTML', reply_markup:{inline_keyboard:delKey}});
                             }
 
                             await ctx.deleteMessage(ctx.message.message_id)
@@ -368,7 +372,7 @@ bot.start(async(ctx)=>{
                                             let mediagroup = [];
                                             for (let index = 0; index < res1.length; index++) {
                                             const data = res1[index];
-                                            mediagroup.push({type: data.type, media: data.file_id, caption: data.caption, parse_mode:'HTML'});
+                                            mediagroup.push({type: data.type, media: data.file_id, caption: data.caption, parse_mode:'HTML', reply_markup:{inline_keyboard:delKey}});
                                         }
                         
                                         await saver.checkBan(`${ctx.from.id}`).then(async res => {
@@ -464,6 +468,10 @@ bot.start(async(ctx)=>{
         //saving user details to the database
         await saver.saveUser(user)
     }
+})
+
+bot.action('DELETED', async(ctx)=>{
+    await ctx.deleteMessage()
 })
 
 //DEFINING POP CALLBACK
