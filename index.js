@@ -88,6 +88,8 @@ const inKey = [
     [{text: `${url3}`, url: `${url4}`}]
 ];
 
+bot.catch(e => console.error(e))
+
 //BOT START
 bot.start(async(ctx)=>{
     if(ctx.chat.type == 'private') {
@@ -1594,8 +1596,6 @@ bot.command('stats',async(ctx)=>{
         })
     })
 })
-
-bot.catch(e => console.error(e))
 
 //heroku config
 domain = `${process.env.DOMAIN}.herokuapp.com`
