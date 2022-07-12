@@ -1,8 +1,8 @@
-# RatuFileSaver
+# Albumsaver
 Bot menghasilkan tautan yang dapat dibagikan di dalam telegram untuk video, photo, dokumen dan bisa berbagi secara grup.
 <hr>
 </br>
-<a href="https://heroku.com/deploy?template=https://github.com/BimoSora/RatuFileSaver">
+<a href="https://heroku.com/deploy?template=https://github.com/KemekGH/Albumsaver">
   <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
 </a>
 </br>
